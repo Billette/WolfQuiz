@@ -73,7 +73,7 @@ public class Utils {
         Player sarah = new Player("Sarah", "Blue");
         Game.players.add(sarah);
         
-        Player lea = new Player("Léa", "Blue");
+        Player lea = new Player("Lea", "Blue");
         Game.players.add(lea);
         
         Player perrine = new Player("Perrine", "Blue");
@@ -108,7 +108,7 @@ public class Utils {
         Role muted = new Role("Muted", "public", 0, 1, 0.3);
         Game.roles.add(muted);
         
-        Role doppelganger = new Role("Doppelganger", "public", 0, 1, 0.8);
+        Role doppelganger = new Role("Doppelganger", "public", 0, 1, 0.6);
         Game.roles.add(doppelganger);
         
         Role swapper = new Role("Swapper", "public", 0, 1, 0.6);
@@ -150,7 +150,7 @@ public class Utils {
         BufferedWriter bw = null;
         
         try {
-         bw = new BufferedWriter(new FileWriter("log.txt", true));
+         bw = new BufferedWriter(new FileWriter("history.txt", true));
          bw.write(str);
          bw.newLine();
          bw.flush();

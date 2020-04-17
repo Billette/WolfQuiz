@@ -49,6 +49,13 @@ public class WolfQuizGM {
                 case "default-players":
                     Utils.defaultPlayers();
                     break;
+                    
+                // add the default players and the default roles to the game (for tests only)
+                case "d":
+                case "default":
+                    Utils.defaultPlayers();
+                    Utils.defaultRoles();
+                    break;
                 
                 case "p":
                 case "player":
@@ -63,6 +70,11 @@ public class WolfQuizGM {
                 case "s":
                 case "show":
                     Commands.show(arguments);
+                    break;
+                
+                case "switch":
+                case "swap":
+                    Commands.swapTeam(arguments);
                     break;
                 
                 case "t":    
@@ -94,7 +106,9 @@ public class WolfQuizGM {
         System.out.println("Start your inputs here, use help command if needed (type 'help')");
         
         try {
-         bw = new BufferedWriter(new FileWriter("log.txt", true));
+         bw = new BufferedWriter(new FileWriter("history.txt", true));
+         bw.newLine();
+         bw.write("-----------------------");
          bw.write("-- Beginning of Game ---");
          bw.newLine();
          bw.flush();

@@ -51,8 +51,15 @@ public class Commands {
     /** Roll the roles and start a new round **/
     public static void nextRound() {
         System.out.println("Starting a new round !");
-        
         Game.currentRound++;
+        System.out.println("Round " + Game.currentRound);
+        
+        if( (Game.currentRound - 1) > 0){
+            Utils.writeLog("");
+            Utils.writeLog(" /=================================/");
+            Utils.writeLog("Ending of Round " + (Game.currentRound - 1));
+            writeInfos();
+        }
         
         /** Roles of players are refreshed **/
         for(Player player: Game.players){
@@ -94,17 +101,31 @@ public class Commands {
         
         while((!rolesToDistribute.isEmpty()) && (totalRolesToDistribute > totalAttributedRoles) ){
             Role role = Utils.getRandomRole(rolesToDistribute);
-            rolesToDistribute.remove(role);
             // We pick a random player
             Player player = Utils.getRandomPlayer(Game.players);
             // If there is enough remaining place for a role
             if(player.roles.size() < Game.maxRole){
                 // If the player does not already have this role
                 if(!player.roles.contains(role)){
-                    player.roles.add(role);
-                    System.out.println("Player '" + player.name + "' has now the role : '" + role.name + "'");
+                    
+                    boolean noOtherKing = true;
+                    // 1 King per team maximum
+                    if("King".equals(role.name)){
+                        for(Player player2: Game.players){
+                            if(player2.team.equals(player.team) && player2.roles.contains(role)){
+                                noOtherKing = false;
+                            }
+                        }
+                    }
+                    
+                    if(noOtherKing){
+                        player.roles.add(role);
+                        rolesToDistribute.remove(role);
+                        System.out.println("Player '" + player.name + "' has now the role : '" + role.name + "'");
+                    }
                 }
             }
+            
         }
         System.out.println();
         
@@ -118,6 +139,11 @@ public class Commands {
         
         System.out.println("Players with their roles : ");
         showPlayers();
+        
+        Utils.writeLog("");
+        Utils.writeLog(" /=================================/");
+        Utils.writeLog("Beginning of Round " + (Game.currentRound));
+        writeInfos();
         
     }
             
@@ -169,7 +195,7 @@ public class Commands {
             if(! (name.equals("") &&  team.equals(""))) {
                 Player playerToAdd = new Player(name, team);
                 Game.players.add(playerToAdd);
-                System.out.println("Player " + name + " of Team " + team + " has been added");
+                System.out.println("Player '" + name + "' of Team " + team + " has been added");
             }
         } else {
             System.out.println("Bad use of the '" + arguments[1] + "' command");
@@ -208,12 +234,27 @@ public class Commands {
         System.out.println("---");
     }
     
+    public static void writeInfos(){
+        Utils.writeLog("Informations :");
+        Utils.writeLog("---");
+        for (Player player : Game.players) {
+            Utils.writeLog("Name : " + player.name );
+            Utils.writeLog("Points : " + player.points );
+            Utils.writeLog("Team : " + player.team );
+            for(Role role: player.roles){
+                Utils.writeLog("Role : " + role.name );
+            }
+            Utils.writeLog("");
+        }  
+        Utils.writeLog("---");
+    }
+    
     public static void showPublic(){
         System.out.println("Show the current players");
         System.out.println("---");
         for (Player player : Game.players) {
             System.out.println("Name : " + player.name );
-            System.out.println("Team: " + player.team );
+            System.out.println("Team : " + player.team );
             for(Role role: player.roles){
                 if("public".equals(role.visibility)){
                     System.out.println("Role : " + role.name );
@@ -233,7 +274,11 @@ public class Commands {
         if(arguments.length > 4){
             name = arguments[2];
             operator = arguments[3];
-            amount = Integer.parseInt(arguments[4]);
+            try {
+                amount = Integer.parseInt(arguments[4]);
+            } catch(NumberFormatException nfe) {
+                
+            }
             
             if(! (name.equals("") &&  operator.equals(""))) {
                 switch(operator){
@@ -278,6 +323,26 @@ public class Commands {
         if(player != null) {
             player.points = amount;
         }
+    }
+    
+    // Swap 2 people's team. Power of the Swapper
+    public static void swapTeam(String[] arguments){
+        if(arguments.length > 2){
+            String name1 = arguments[1];
+            String name2 = arguments[2];
+            Player player1 = Utils.findPlayer(name1);
+            Player player2 = Utils.findPlayer(name2);
+
+            if(player1 != null && player2 != null){
+                String tmp = player1.team;
+                player1.team = player2.team;
+                player2.team = tmp;
+                System.out.println("Team of '" + name1 + "' and '" + name2 + "' have been swapped");
+            }
+        } else {
+            System.out.println("Bad use of the '" + arguments[0] + "' command");
+        }
+        
     }
     
    

@@ -18,7 +18,7 @@ Here are some keywords to describe the roles :
 * **Warcry** : The effect triggers at the start of the round.
 * **Death Wish** : The effect triggers at the end of the round.
 * **Surprise** : The effect triggers whenever the GM decides it.
-* **Malus** : If the player fails to perform its role during the round, it loses 1 point
+* **Bonus Malus** : If the player succeeds in performing its role during the round, it earns 1 point. Otherwise, it loses 1 point.
 
 ## Roles
 
@@ -30,15 +30,15 @@ Here is a list of roles you can apply to each player :
   
  * **The Chaman** : &nbsp;&nbsp; **Warcry** : The Chaman can ask the GM which private roles have be assigned to the targeted player. The Chaman cannot reveal those roles publicly.
   
- * **The Muted** : &nbsp;&nbsp; **Malus** : Cannot interact during the round (exceptions are **Warcry** and **Death Wish**).
+ * **The Muted** : &nbsp;&nbsp; **Bonus Malus** : Cannot interact during the round (exceptions are **Warcry** and **Death Wish**).
   
  * **The Doppelgänger** : &nbsp;&nbsp; **Warcry** : The Doppelgänger targets a player. &nbsp;&nbsp; **Death Wish** : the Doppelgänger earns the same amount of points as this player.
   
  * **The Swapper** : &nbsp;&nbsp; **Warcry** : The Swapper must swap its place permanently with a member of another team. This does not swap the roles.
   
- * **The Gourmet** : &nbsp;&nbsp; **Surprise and Malus** : The Gourmet has 10 seconds to give the name of a main dish or a dessert that has not been given yet (example: *Hamburger*, *Strawberries and Ice Cream*).
+ * **The Gourmet** : &nbsp;&nbsp; **Surprise and Bonus Malus** : The Gourmet has 10 seconds to give the name of a main dish or a dessert that has not been given yet (example: *Hamburger*, *Strawberries and Ice Cream*).
 
- * **The Bard** : &nbsp;&nbsp; **Malus** : The Bard can only sing.
+ * **The Bard** : &nbsp;&nbsp; **Bonus Malus** : The Bard can only sing.
    
  * **The Engineer** : &nbsp;&nbsp; The Engineer can ask to the GM the Fifty-Fifty (keep only 2 available answers, with one correct).
 
@@ -47,9 +47,9 @@ Here is a list of roles you can apply to each player :
 
  * **The Bitch** : &nbsp;&nbsp; The Bitch earns 2 points if its team proposes an incorrect answer, 0 otherwise. **Death Wish** : each player can vote for an other one that it thinks this player is the Bitch. +1 point if it is correct, -1 if incorrect, 0 if not voted.
 
- * **The Mad Scientist** : &nbsp;&nbsp; The Mad Scientist can only propose answer B.
+ * **The Mad Scientist** : &nbsp;&nbsp; The Mad Scientist can only propose answer D.
   
- * **The Joker** : &nbsp;&nbsp; **Malus** : The Joker must make someone smile/laugh during the round. 
+ * **The Joker** : &nbsp;&nbsp; **Bonus Malus** : The Joker must make someone smile/laugh during the round. 
   
  * **The Assassin** : &nbsp;&nbsp; If The Assassin tells the name of a player during the round, this player will not earn any point. Works only once.
  
