@@ -46,6 +46,10 @@ public class Utils {
         return totalAttributedRoles;
     }
     
+    public static int getMaxAttributedRoles(){
+        return (Game.maxRole * Game.players.size());
+    }
+    
     public static Player findPlayer(String name) {
         for(Player player : Game.players) {
             if(name.equals(player.name)){

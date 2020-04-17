@@ -98,8 +98,9 @@ public class Commands {
         /** For each role to be distributed, we attribute it to some player,
          * with respect to the rules. **/
         int totalAttributedRoles = Utils.getTotalAttributedRoles();
+        int maxAttributedRoles = Utils.getMaxAttributedRoles();
         
-        while((!rolesToDistribute.isEmpty()) && (totalRolesToDistribute > totalAttributedRoles) ){
+        while((!rolesToDistribute.isEmpty()) && (totalAttributedRoles < maxAttributedRoles) ){
             Role role = Utils.getRandomRole(rolesToDistribute);
             // We pick a random player
             Player player = Utils.getRandomPlayer(Game.players);
@@ -123,9 +124,10 @@ public class Commands {
                         rolesToDistribute.remove(role);
                         System.out.println("Player '" + player.name + "' has now the role : '" + role.name + "'");
                     }
+                    
+                    totalAttributedRoles = Utils.getTotalAttributedRoles();
                 }
             }
-            
         }
         System.out.println();
         
