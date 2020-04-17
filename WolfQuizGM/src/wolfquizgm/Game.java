@@ -13,6 +13,11 @@ import java.util.ArrayList;
  */
 public class Game {
     /** Players and Roles available.**/
+    
+    // A single player can have a maximum of X roles
+    public static int maxRole = 2;
+    public static int currentRound = 0;
+    
     public static ArrayList<Player> players = new ArrayList<Player>();
     public static ArrayList<Role> roles = new ArrayList<Role>();
 }

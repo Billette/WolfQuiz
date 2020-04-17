@@ -22,42 +22,59 @@ public class WolfQuizGM {
             input = in.nextLine();
             arguments = input.split(" ");
             
-            /*
-            try {
-            bw.write("Command used : " + input );
-            bw.newLine();
-            bw.flush();
-            } catch (IOException ioe) {
-            ioe.printStackTrace();
-            }*/
+            Utils.writeLog("> " + input);
             
             String commandToPerform = arguments[0];
             
             switch(commandToPerform){
                 
+                case "h":
                 case "help":
                     Commands.help();
                     break;
-                    
+                
+                case "q":
+                case "quit":  
                 case "exit":
                     break;
                     
                 // add the default roles to the game
+                case "dr":
                 case "default-roles":
-                    Commands.defaultRoles();
+                    Utils.defaultRoles();
                     break;
                     
                 // add the default players to the game (for tests only)
+                case "dp":
                 case "default-players":
-                    Commands.defaultPlayers();
+                    Utils.defaultPlayers();
                     break;
-                    
+                
+                case "p":
                 case "player":
                     Commands.player(arguments);
                     break;
-                    
+                
+                case "r":
                 case "role":
                     Commands.role(arguments);
+                    break;
+                
+                case "s":
+                case "show":
+                    Commands.show(arguments);
+                    break;
+                
+                case "t":    
+                case "team":    
+                    Commands.team(arguments);
+                    break;
+                    
+                 /** Roll the roles to start a new fresh round **/
+                case "n":
+                case "next-round":
+                case "next":
+                    Commands.nextRound();
                     break;
                     
                 default:
@@ -82,7 +99,7 @@ public class WolfQuizGM {
          bw.newLine();
          bw.flush();
          
-         /** Stats the Command Loop **/
+         /** Start the Command Loop **/
          commandLoop(bw);
 	 
          bw.write("-- Ending of Game ---");
