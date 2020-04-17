@@ -40,6 +40,9 @@ public class Commands {
             case "public":
                 showPublic();
                 break;
+            case "private":
+                showPrivate();
+                break;
             default:
                 System.out.println("Bad use of the '" + arguments[0] + "' command");
         }
@@ -252,13 +255,29 @@ public class Commands {
     }
     
     public static void showPublic(){
-        System.out.println("Show the current players");
+        System.out.println("Show the current players with Public roles");
         System.out.println("---");
         for (Player player : Game.players) {
             System.out.println("Name : " + player.name );
             System.out.println("Team : " + player.team );
             for(Role role: player.roles){
                 if("public".equals(role.visibility)){
+                    System.out.println("Role : " + role.name );
+                }
+            }
+            System.out.println("");
+        }  
+        System.out.println("---");
+    }
+    
+    public static void showPrivate(){
+        System.out.println("Show the current players with Private roles");
+        System.out.println("---");
+        for (Player player : Game.players) {
+            System.out.println("Name : " + player.name );
+            System.out.println("Team : " + player.team );
+            for(Role role: player.roles){
+                if("private".equals(role.visibility)){
                     System.out.println("Role : " + role.name );
                 }
             }
