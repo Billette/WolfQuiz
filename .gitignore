@@ -23,4 +23,9 @@
 hs_err_pid*
 /WolfQuizGM/nbproject/private/
 /WolfQuizGM/build/
+
+# History/Questions of the games
 /WolfQuizGM/history.txt
+*.questions.txt
+
+
