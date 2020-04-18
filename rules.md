@@ -28,7 +28,7 @@ Here is a list of roles you can apply to each player :
 
  * **The King** : &nbsp;&nbsp; If the players of a team do not agree on an answer, the King decides an answer for its team.  
   
- * **The Chaman** : &nbsp;&nbsp; **Warcry** : The Chaman can ask the GM which private roles have be assigned to the targeted player. The Chaman cannot reveal those roles publicly.
+ * **The Shaman** : &nbsp;&nbsp; **Warcry** : The Shaman can ask the GM which private roles have be assigned to the targeted player. The Chaman cannot reveal those roles publicly.
   
  * **The Muted** : &nbsp;&nbsp; **Bonus Malus** : Cannot interact during the round (exceptions are **Warcry** and **Death Wish**).
   
