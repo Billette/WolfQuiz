@@ -389,6 +389,12 @@ public class Commands {
                 removeRole(arguments);
                 break;
             
+            case "change":
+            case "modify":
+            case "m":
+                modifyRole(arguments);
+                break;
+            
             case "s":
             case "show":
                 showRoles();
@@ -427,6 +433,35 @@ public class Commands {
                 Game.roles.add(roleToAdd);
                 System.out.println("Role '" + name + "' with visibility " + visibility + " has been added");
                 System.out.println("This role has a minimum number of " + minNumber + ", a maximum of " + maxNumber 
+                        + " and a mean of " + mean);
+            }
+        } else {
+            System.out.println("Bad use of the '" + arguments[1] + "' command");
+        }
+    }
+    
+    public static void modifyRole(String[] arguments){
+        System.out.println("Modify a role");
+        String name = "";
+        int minNumber = 0;
+        int maxNumber = 0;
+        double mean = 0.0;
+        
+        if(arguments.length > 5){
+            name = arguments[2];
+            minNumber = Integer.parseInt(arguments[3]);
+            maxNumber = Integer.parseInt(arguments[4]);
+            mean = Double.parseDouble(arguments[5]);
+            
+            if( !(name.equals("")) ) {
+                Role roleToModify = Utils.findRole(name);
+                
+                roleToModify.minNumber = minNumber;
+                roleToModify.maxNumber = maxNumber;
+                roleToModify.mean = mean;
+                
+                System.out.println("Role '" + name + "' has been modified");
+                System.out.println("This role has now a minimum number of " + minNumber + ", a maximum of " + maxNumber 
                         + " and a mean of " + mean);
             }
         } else {
