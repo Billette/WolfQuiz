@@ -1,62 +1,77 @@
-# Rules of the WolfQuiz
+# WolfQuiz
 
-## Concept
+## Requirements
 
-The game is designed for at least 4 players + the Game Master (GM). The GM needs to prepare a set of questions with possible answers A, B, C and D. 
+ * Minimum 3 players to be interesting
+ * A Discord server
+ * Java knowledges is a plus (or at least a Java IDE)
 
-The players are splitted between 2 or more teams. Even if you have a team, you have a your own personal points as a player. The winner is the one who has the bigger number of point at the end of the game.
+## Rules
 
-At each question, the players of the first team can publicly consult each other, vote and then give an answer to the GM. Same for the second team, etc... do not forget to alternate the starting team at each question. A correct answer give to all the players of the team one point (some exceptions below).
+The rules are simple : the Game Master (GM) has a set of questions. Every player has to guess the correct answer to earn points. The votes are public and individual, and everyone has to give its opinion publicly.
 
-Where the fun begins is when the GM attribute a role to a player at each round (question). the GM can make its own roles, make multiple people have the same role, multiple roles per person etc...
+Each player that gave the correct answer gain the same amount of points as the number of people that gave the correct answer... OK, that's tricky, let's take an example : players A, B and C gave the correct answer and D and E did not. Then, A, B and C earn 3 points each, and D and E earn nothing.
 
-The app makes the roles attributed randomly, with some respect to the rules set by the GM.
+BUT, there are some Wolves in the area ! Every wolf earns 2 points for every person that gave an incorrect answer to the question (itself excluded) and 0 point otherwise.
 
-Some roles are public and must be visible to everyone, and some are private and might be revealed or not at the end of a round. Private roles must stay hidden during the round.
+The wolfes are teamed up and know their teammates. The wolves remain the same players for the next 3 questions. The GM give them the correct answer at every question in private.
 
-Here are some keywords to describe the roles :
-* **Warcry** : The effect triggers at the start of the round.
-* **Death Wish** : The effect triggers at the end of the round.
-* **Surprise** : The effect triggers whenever the GM decides it.
-* **Bonus Malus** : If the player succeeds in performing its role during the round, it earns 1 point. Otherwise, it loses 1 point.
+At the end of each question, the GM tells everyone what was the correct answer and let the players debate for who they think are the wolves (but no votes). The scores are not revealed at every question.
 
-## Roles
+At the end of 3rd question, the players can vote for who they think are the wolves. They have +2 point for every correctly spotted wolf, -2 points for every incorrect vote, and 0 if not voted. The wolves can vote but will not earn or loose any point from this vote. The player(s) that get(s) the most votes loose(s) 3 points. The scores are revealed and the wolf team is re-rolled.
 
-Here is a list of roles you can apply to each player :
+### Exemple
 
-### Public
+Players are : Adèle, Blanchard, Clément, Denis, Eglandine and Ferdinand.
 
- * **The King** : &nbsp;&nbsp; If the players of a team do not agree on an answer, the King decide an answer for its team.  
-  
- * **The Chaman** : &nbsp;&nbsp; **Warcry** : The Chaman can ask the GM which private roles have be assigned to the targeted player. The Chaman cannot reveal those roles publicly.
-  
- * **The Muted** : &nbsp;&nbsp; **Bonus Malus** : Cannot interact during the round (exceptions are **Warcry** and **Death Wish**).
-  
- * **The Doppelgänger** : &nbsp;&nbsp; **Warcry** : The Doppelgänger targets a player. &nbsp;&nbsp; **Death Wish** : the Doppelgänger earns the same amount of points as this player.
-  
- * **The Swapper** : &nbsp;&nbsp; **Warcry** : The Swapper must swap its place permanently with a member of another team. This does not swap the roles.
-  
- * **The Gourmet** : &nbsp;&nbsp; **Surprise and Bonus Malus** : The Gourmet has 10 seconds to give the name of a main dish or a dessert that has not been given yet (example: *Hamburger*, *Strawberries and Ice Cream*).
+There are 2 wolves that are Adèle and Blanchard. 
 
- * **The Bard** : &nbsp;&nbsp; **Bonus Malus** : The Bard can only sing.
-   
- * **The Engineer** : &nbsp;&nbsp; The Engineer can ask to the GM the Fifty-Fifty (keep only 2 available answers, with one correct).
+**Question 1 : How do you translate "joke" in Swedish ?**
+  * **A** : glädje
+  * **B** : skämt
+  * **C** : lycklig
+  * **D** : kyckling
 
+The correct answer is "B : skämt", and Adèle and Blanchard know that.
 
-### Private
+Adèle says that it could be "lycklig", as it looks like "liking", and that everyone likes jokes. Clément hesitates between "skämt" and "glädje", but will choose "skämt". Blanchard says that he knows that "kyckling" means "chicken", so it must be the other one, so "lycklig". Denis follows the idea of Clement ("skämt"), and Eglandine and Ferdinand choose "lycklig".
 
- * **The Bitch** : &nbsp;&nbsp; The Bitch earns 2 points if its team proposes an incorrect answer, 0 otherwise. **Death Wish** : each player can vote for an other one that it thinks this player is the Bitch. +1 point if it is correct, -1 if incorrect, 0 if not voted.
+At the end, we have 2 correct answers and 4 incorrect ones. From this question, Adèle and Blanchard earns 6 points each (4 incorrect answers - their own answer = 3 incorrect answers from others, and 3*2 = 6 points... I know, maths aren't funny but hey, the app should make it for you ^^ ). Denis and Clement earns 2 points each. Eglandine and Ferdinand earn nothing.
 
- * **The Mad Scientist** : &nbsp;&nbsp; The Mad Scientist can only propose answer D.
-  
- * **The Joker** : &nbsp;&nbsp; **Bonus Malus** : The Joker must make someone smile/laugh during the round. 
-  
- * **The Assassin** : &nbsp;&nbsp; If The Assassin tells the name of a player during the round, this player will not earn any point. Works only once.
- 
- * **The Angel** : &nbsp;&nbsp; The Angel cannot lose any point during this round. The Angel is not affected by the Assassin.
+**Question 2 : In Star Wars, what is the name of the planet destroyed by the first Death Star ?**
+  * **A** : Tatooine
+  * **B** : Naboo
+  * **C** : Alderaan
+  * **D** : Endor
 
- * **The Cheater** : &nbsp;&nbsp; **Warcry** : The Cheater has the correct answer from the GM.
+The correct answer is "C : Alderaan".
 
- * **The Villager** : &nbsp;&nbsp; If the player has no public OR private role, it becomes the Villager. The Villager earns an additional point if its team answer correctly.
+Clément is confident in the answer C has he knows Star Wars by heart. Because he gave a correct answer previously, everyone follows him except Adèle, that is sure that this is "Naboo". 
 
+At the end, Adèle and Blanchard earn 0 point, and all of the others earn 5 points each (5 correct answers, including Blanchard's vote).
 
+**Question 3 : True or False : The T-shirt is the official undershirt in the US-Navy in 1919.**
+  * **A** : True
+  * **B** : False
+
+The correct answer is "A : True".
+
+Eglandine laughts and says that it cannot be true. Ferdinand, that is madly in love with Eglandine, says the same. Adèle, Blanchard and Denis follow this answer. Clément is the only one who says that it is "True".
+
+At the end, Clément earns 1 point, Adèle and Blanchard earn 8 points each, and the others nothing.
+
+**Wolves Vote Time !**
+
+Then, it is time to make people vote for who they think are the 2 wolves. Blanchard the Traitor votes for Adèle only. Clément is voting for Adèle and Blanchard, because HE knows the truth. Adèle, furious, votes for Eglantine. Eglantine, jealous, votes for Adèle and Denis, because Denis seems weird. Denis vote for Eglantine and Ferdinand. The others choose not to vote.
+
+From this vote, Clément earns 2 + 2 = 4 points, Eglantine earns + 2 - 2 = 0 points. Denis looses 4 points. The others (including Adèle and Blanchard) do not earn or loose points. Adèle, that has the more votes, looses 3 points.
+
+After this 3 questions, the results are :
+Adèle : 6 + 0 + 8 - 3 = **11** <br>
+Blanchard : 6 + 0 + 8 + 0 = **14** <br>
+Clément : 2 + 5 + 1 + 4 = **12** <br>
+Denis : 2 + 5 + 0 - 4 = **3** <br>
+Eglantine : 0 + 5 + 0 + 0 = **5** <br>
+Ferdinand : 0 + 5 + 0 + 0 = **5** <br>
+
+We roll the wolves, show the scores and here we go again !
